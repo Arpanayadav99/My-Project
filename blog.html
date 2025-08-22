@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Layout</title>
+  <style>
+    body { font-family:Verdana; margin:0; background:#f9f9f9; }
+    header { background:#222; color:white; padding:20px; text-align:center; }
+    .container { display:flex; max-width:1000px; margin:auto; padding:20px; }
+    .main { flex:3; margin-right:20px; }
+    .sidebar { flex:1; background:#fff; padding:15px; border-radius:8px; }
+    article { background:white; padding:20px; margin-bottom:20px; border-radius:8px; }
+    footer { background:#222; color:white; text-align:center; padding:20px; margin-top:20px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Blog</h1>
+  </header>
+  <div class="container">
+    <div class="main">
+      <article>
+        <h2>First Blog Post</h2>
+        <p>This is my first blog post. Simple and clean design using HTML & CSS.</p>
+      </article>
+      <article>
+        <h2>Second Blog Post</h2>
+        <p>Another blog post layout for practice.</p>
+      </article>
+    </div>
+    <div class="sidebar">
+      <h3>About Me</h3>
+      <p>Beginner Web Designer.</p>
+    </div>
+  </div>
+  <footer>© 2025 My Blog</footer>
+</body>
+</html>

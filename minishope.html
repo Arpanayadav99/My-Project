@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mini Shop - Product (HTML+CSS)</title>
+<style>
+  :root{--pri:#2b6cb0;--bg:#f7fafc;--card:#fff;--muted:#718096}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Arial,system-ui;background:var(--bg);color:#1a202c}
+  .wrap{max-width:1100px;margin:28px auto;padding:18px}
+  header{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px}
+  .brand{font-weight:800;color:var(--pri)}
+  .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
+  .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,.06)}
+  /* gallery using radio buttons */
+  .gallery{display:flex;flex-direction:column;gap:12px}
+  .slides{position:relative;border-radius:10px;overflow:hidden}
+  .slides img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover}
+  .thumbs{display:flex;gap:10px;margin-top:8px}
+  .thumbs label{width:70px;height:70px;overflow:hidden;border-radius:8px;cursor:pointer;opacity:.7;border:2px solid transparent}
+  .thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+  input[type=radio]{display:none}
+  /* show slide based on radio */
+  #s1:checked ~ .slides #img1,
+  #s2:checked ~ .slides #img2,
+  #s3:checked ~ .slides #img3,
+  #s4:checked ~ .slides #img4 {display:block}
+  .slides img{display:none}
+  /* thumbs active style */
+  #s1:checked ~ .thumbs label[for=s1],
+  #s2:checked ~ .thumbs label[for=s2],
+  #s3:checked ~ .thumbs label[for=s3],
+  #s4:checked ~ .thumbs label[for=s4]{opacity:1;border-color:var(--pri)}
+  .title{font-size:22px;margin:0 0 6px}
+  .muted{color:var(--muted);font-size:14px}
+  .price{display:flex;align-items:center;gap:12px;margin:14px 0}
+  .now{font-weight:800;font-size:26px}
+  .old{color:var(--muted);text-decoration:line-through}
+  .btn{background:var(--pri);color:#fff;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:700;display:inline-block}
+  .specs{margin-top:12px;color:var(--muted)}
+  .reviews{margin-top:18px;border-top:1px solid #edf2f7;padding-top:12px}
+  .review{display:flex;gap:10px;margin:8px 0}
+  .avatar{width:40px;height:40px;border-radius:50%;background:#e2e8f0}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">MiniShop</div>
+      <div class="muted">Simple Product Page (HTML + CSS)</div>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <!-- radio inputs for slides -->
+        <input type="radio" id="s1" name="slide" checked>
+        <input type="radio" id="s2" name="slide">
+        <input type="radio" id="s3" name="slide">
+        <input type="radio" id="s4" name="slide">
+
+        <div class="gallery">
+          <div class="slides">
+            <img id="img1" src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200&auto=format&fit=crop" alt="">
+            <img id="img2" src="https://images.unsplash.com/photo-1511385348-a52b4a160dc2?q=80&w=1200&auto=format&fit=crop" alt="">
+            <img id="img3" src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1200&auto=format&fit=crop" alt="">
+            <img id="img4" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop" alt="">
+          </div>
+
+          <div class="thumbs" aria-hidden="true">
+            <label for="s1"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=300&auto=format&fit=crop" alt=""></label>
+            <label for="s2"><img src="https://images.unsplash.com/photo-1511385348-a52b4a160dc2?q=80&w=300&auto=format&fit=crop" alt=""></label>
+            <label for="s3"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=300&auto=format&fit=crop" alt=""></label>
+            <label for="s4"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=300&auto=format&fit=crop" alt=""></label>
+          </div>
+        </div>
+      </section>
+
+      <aside class="card">
+        <h2 class="title">Wireless Headphones Pro</h2>
+        <div class="muted">Premium sound • 30hrs battery • Noise cancel</div>
+
+        <div class="price">
+          <div class="now">₹4,999</div>
+          <div class="old">₹7,999</div>
+          <div class="muted">(38% OFF)</div>
+        </div>
+
+        <p>Experience immersive audio with soft cushions and deep bass. Perfect for music & meetings.</p>
+
+        <div style="margin-top:16px">
+          <a class="btn" href="#">Add to Cart</a>
+          <a class="btn" style="background:#1a202c;margin-left:10px" href="#reviews">Reviews</a>
+        </div>
+
+        <div class="specs">
+          <ul>
+            <li>1 year warranty</li>
+            <li>Free shipping</li>
+            <li>7-day returns</li>
+          </ul>
+        </div>
+
+        <div id="reviews" class="reviews">
+          <h3>Customer Reviews</h3>
+          <div class="review"><div class="avatar"></div><div><b>Ankit</b><br><span class="muted">Crisp sound & great battery!</span></div></div>
+          <div class="review"><div class="avatar"></div><div><b>Riya</b><br><span class="muted">Very comfy.</span></div></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LearnPlus - Course (HTML+CSS)</title>
+<style>
+  :root{--pri:#2563eb;--bg:#f8fafc;--card:#fff;--muted:#64748b}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Arial;background:var(--bg);color:#0f172a}
+  .wrap{max-width:1100px;margin:auto;padding:18px}
+  header{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px}
+  .brand{font-weight:800;color:var(--pri)}
+  .hero{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .hero img{width:380px;border-radius:12px;object-fit:cover}
+  .pill{background:#e0e7ff;color:#3730a3;padding:6px 10px;border-radius:999px;display:inline-block;margin-bottom:10px;font-weight:700}
+  .cta .btn{background:var(--pri);color:#fff;padding:12px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+  .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 8px 22px rgba(0,0,0,.06)}
+  /* CSS slider using radio */
+  .slides{position:relative;padding:10px}
+  .slide{display:none}
+  input[name="t"]{display:none}
+  #t0:checked ~ .slides #sl0,
+  #t1:checked ~ .slides #sl1,
+  #t2:checked ~ .slides #sl2{display:block}
+  .dots{display:flex;gap:8px;justify-content:center;margin-top:10px}
+  .dot{width:10px;height:10px;border-radius:50%;background:#cbd5e1}
+  #t0:checked ~ .dots label[for=t0],
+  #t1:checked ~ .dots label[for=t1],
+  #t2:checked ~ .dots label[for=t2]{background:var(--pri)}
+  form input,form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:8px}
+  .btn-block{display:inline-block;margin-top:10px;background:#0f172a;color:#fff;padding:10px 12px;border-radius:8px}
+  @media(max-width:900px){.hero{flex-direction:column}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header><div class="brand">LearnPlus</div><div class="muted">Web Design Bootcamp</div></header>
+
+    <section class="hero">
+      <div>
+        <span class="pill">NEW • Web Design Bootcamp</span>
+        <h1>Master HTML & CSS with Real Projects</h1>
+        <p class="muted">Build responsive sites and start freelancing in weeks.</p>
+        <div class="cta"><a class="btn" href="#enroll">Enroll Now</a></div>
+      </div>
+      <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop" alt="">
+    </section>
+
+    <div class="grid">
+      <div class="card">
+        <h3>What you'll learn</h3>
+        <ul class="muted"><li>Semantic HTML & modern CSS</li><li>Flexbox & Grid</li><li>Design to code</li><li>4 client-ready projects</li></ul>
+      </div>
+
+      <div class="card">
+        <h3>Testimonials</h3>
+        <!-- radio controls -->
+        <input type="radio" name="t" id="t0" checked>
+        <input type="radio" name="t" id="t1">
+        <input type="radio" name="t" id="t2">
+
+        <div class="slides">
+          <div class="slide" id="sl0"><p>“Built my first site in 2 weeks!” — <b>Rahul</b></p></div>
+          <div class="slide" id="sl1"><p>“Projects are client-ready.” — <b>Simran</b></p></div>
+          <div class="slide" id="sl2"><p>“Very practical course.” — <b>Neeraj</b></p></div>
+        </div>
+
+        <div class="dots">
+          <label class="dot" for="t0" style="cursor:pointer"></label>
+          <label class="dot" for="t1" style="cursor:pointer"></label>
+          <label class="dot" for="t2" style="cursor:pointer"></label>
+        </div>
+      </div>
+    </div>
+
+    <section id="enroll" style="margin-top:18px">
+      <div class="card">
+        <h3>Enroll</h3>
+        <form action="#" method="post">
+          <input type="text" name="name" placeholder="Full name" required>
+          <input type="email" name="email" placeholder="Email address" required>
+          <textarea name="notes" rows="3" placeholder="Any questions (optional)"></textarea>
+          <button class="btn-block" type="submit">Join Bootcamp</button>
+          <p class="muted" style="margin-top:8px">Static demo form — for real signups integrate backend/email.</p>
+        </form>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
